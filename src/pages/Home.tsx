@@ -1,55 +1,74 @@
-import Navbar from "../components/Navbar";
+import { experienceHighlights, profile, story, strengths } from '../data/siteContent'
 
 export default function Home() {
   return (
-    <div className="HomeContainer">
-      <Navbar />
-
-      <div className="Container">
-
-        <div className="section-card HomeContent home-enter">
-          <h1>
-            Hello! My name is <span className="name">Alex</span>
-          </h1>
-          <p>I am a software developer based in Minnesota.</p>
-
-          <ul className="LinkRow">
-            <li><a className="link" href="https://github.com/alexstack012">Github</a></li>
-            <li><a className="link" href="https://www.linkedin.com/in/alexstack/">LinkedIn</a></li>
-            <li><a className="link" target="_blank" href="/ASTACKResume.pdf" rel="noopener noreferrer">Resume</a></li>
-            <li><a className="link" href="mailto:alex_stack012@live.com">Email</a></li>
-          </ul>
-        </div>
-
-        <div className="section-divider" />
-
-        <div className="section-card about about-enter">
-          <h2>About Me</h2>
-          <p className="aboutParagraph">
-            My name is Alex Stack and I am a software developer based in
-          Minnesota. I graduated from high school early to enlist the US Army
-          where I served for 8 years. I took a coding bootcamp during covid and
-          learned everything I could about software development and have loved
-          it ever since.
-          <br />
-          <br />
-          Frontend-focused Software Engineer with several years of experience
-          building scalable, accessible, and responsive applications. Strong
-          proficiency in Angular (7–15), Vite/React, TypeScript, JavaScript, and
-          API-driven development. Experienced in creating reusable UI systems,
-          improving performance, writing maintainable code, and contributing to
-          full-stack development with Node, Python, and SQL. Known for being a
-          fast learner, strong collaborator, and adaptive engineer who can work
-          across the stack.
-          <br />
-          <br />
-          When Im not coding I'm either with my family as I am a father of 4, I
-          love video games, music and anything nerdy! from Star wars, DnD,
-          Warhammer 40k, and more!
+    <div className="page page--home">
+      <section className="hero">
+        <div className="hero__content">
+          <p className="eyebrow">
+            {profile.role} based in {profile.location}
           </p>
+          <h1>
+            Building thoughtful products with clean code and a strong front-end eye.
+          </h1>
+          <p className="hero__summary">{profile.summary}</p>
+          <div className="action-row">
+            {profile.socialLinks.map((link) => (
+              <a
+                key={link.label}
+                className={`button-link${link.label === 'Email' ? ' button-link--secondary' : ''}`}
+                href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noreferrer' : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
 
-      </div>
+        <aside className="hero__card surface-card" aria-label="Quick overview">
+          <p className="hero__card-label">Snapshot</p>
+          <h2>{profile.fullName}</h2>
+          <ul className="detail-list">
+            <li>Frontend engineering with modern React and TypeScript</li>
+            <li>Experience translating requirements into polished interfaces</li>
+            <li>Focused on accessibility, maintainability, and user trust</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section className="content-grid" aria-label="Professional overview">
+        <article className="surface-card section-block">
+          <p className="section-label">Core strengths</p>
+          <h2>What I bring to a team</h2>
+          <ul className="bullet-list">
+            {strengths.map((strength) => (
+              <li key={strength}>{strength}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="surface-card section-block">
+          <p className="section-label">Experience</p>
+          <h2>Engineering focus</h2>
+          <div className="stack-text">
+            {experienceHighlights.map((item) => (
+              <p key={item}>{item}</p>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <section className="surface-card section-block section-block--wide">
+        <p className="section-label">About</p>
+        <h2>My path into software</h2>
+        <div className="stack-text">
+          {story.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
     </div>
-  );
+  )
 }
