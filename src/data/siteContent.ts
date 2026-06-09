@@ -1,3 +1,9 @@
+import dashboardScreenshot from '../assets/images/dash.webp'
+import loginScreenshot from '../assets/images/login.webp'
+import aginspireScreenshot from '../assets/images/aginspireScreenshot.webp'
+
+//this might be overkill for a simple portfolio, but it seemed right to keep content together and separate from presentation logic.
+
 export const profile = {
   firstName: 'Alex',
   fullName: 'Alex Stack',
@@ -97,9 +103,45 @@ export const featuredProjects = [
       'Dashboard metrics and internal-tool presentation',
       'Careful handling of mixed string and number identifiers from json-server',
     ],
-    repositoryHref: 'https://example.com/northstar-dashboard-repo-placeholder',
-    demoHref: 'https://example.com/northstar-dashboard-demo-placeholder',
-    screenshotPlaceholder: 'Add dashboard overview screenshot here',
-    screenshotAlt: 'Placeholder for Northstar dashboard screenshot',
+    repositoryHref: 'https://github.com/alexstack012/northstar-dashboard',
+    demoHref: '',
+    screenshots: [
+      {
+        src: dashboardScreenshot,
+        alt: 'Northstar dashboard overview showing workforce metrics and recruiting data',
+      },
+      {
+        src: loginScreenshot,
+        alt: 'Northstar login screen with branded authentication form',
+      },
+    ],
   },
+  {
+    name: 'Aginspire',
+    status: 'Deployed and live at aginspire.org',
+    summary: 'A simple SPA Angular application built for a private client in the Agriculture industry.',
+    description:
+      'Aginspire is a single-page application built with Angular, designed to provide users with an intuitive interface for exploring a non-profit ag education enterprise that strives to provide fun and educational opportunities for people of all ages',
+    stack: ['Angular', 'TypeScript', 'SCSS', 'Hosting via client-provided'],
+    outcomes: [
+      'Delivered a polished, user-friendly SPA that met the client’s requirements and timeline',
+      'Implemented responsive design to ensure accessibility across devices',
+      'Collaborated closely with the client to iterate on design and functionality based on feedback',
+    ],
+    highlights: [
+      'End-to-end project delivery from initial requirements gathering to deployment',
+      'Responsive design and user experience tailored to the client’s audience',
+      'Effective client communication and iteration to meet project goals',
+      'Images were taken by myslef during a visit to the client’s farm, adding a personal touch to the project and demonstrating my commitment to understanding the client’s needs and context',
+    ],
+    repositoryHref: '',
+    repositoryPrivate: true,
+    demoHref: 'https://aginspire.org',
+    screenshots: [
+      {
+        src: aginspireScreenshot,
+        alt: 'Aginspire homepage showing educational resources for agriculture',
+      },
+    ],
+  }
 ]

@@ -208,6 +208,14 @@
   box-shadow: none;
 }
 
+.button-link--disabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .content-grid,
 .contact-grid,
 .project-list {
@@ -296,32 +304,82 @@
   border-right: 1px solid var(--color-border);
 }
 
-.project-shot-placeholder {
+.project-shot-grid {
   display: grid;
-  align-content: end;
+  gap: 1rem;
   min-height: 100%;
-  min-height: 22rem;
-  padding: 1.25rem;
-  border: 1px dashed rgba(248, 250, 252, 0.18);
-  border-radius: 1.1rem;
-  background:
-    linear-gradient(135deg, rgba(15, 23, 36, 0.94), rgba(10, 15, 26, 0.72)),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.02),
-      rgba(255, 255, 255, 0.02) 12px,
-      transparent 12px,
-      transparent 24px
-    );
+  min-width: 100%;
+  justify-items: center;
+  align-content: center;
 }
 
-.project-shot-placeholder__label {
-  margin-bottom: 0.75rem;
-  color: var(--color-accent);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.project-shot {
+  display: grid;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 1.1rem;
+  width: 100%;
+  border: 1px solid rgba(248, 250, 252, 0.12);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 36, 0.94), rgba(10, 15, 26, 0.72)),
+    radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 45%);
+}
+
+.project-shot__button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.project-shot__image {
+  display: block;
+  width: 100%;
+  height: 16rem;
+  object-fit: contain;
+  object-position: center;
+  padding: 0.75rem;
+}
+
+.project-dialog__backdrop {
+  background: rgba(2, 6, 14, 0.84);
+  backdrop-filter: blur(10px);
+}
+
+.project-dialog__paper {
+  position: relative;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(10, 15, 26, 0.96);
+  box-shadow: 0 22px 60px rgba(3, 8, 20, 0.5);
+  overflow: hidden;
+}
+
+.project-dialog__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  border: 1px solid rgba(248, 250, 252, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-strong);
+}
+
+.project-dialog__content {
+  padding: 4rem 1rem 1rem !important;
+}
+
+.project-dialog__image {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 8rem);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 1rem;
 }
 
 .project-card__content {

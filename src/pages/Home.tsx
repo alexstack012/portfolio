@@ -1,4 +1,8 @@
-import { experienceHighlights, profile, story, strengths } from '../data/siteContent'
+import {
+  experienceHighlights,
+  profile,
+  story
+} from "../data/siteContent";
 
 export default function Home() {
   return (
@@ -9,17 +13,18 @@ export default function Home() {
             {profile.role} based in {profile.location}
           </p>
           <h1>
-            Building thoughtful products with clean code and a strong front-end eye.
+            Building thoughtful products with clean code and a strong front-end
+            eye.
           </h1>
           <p className="hero__summary">{profile.summary}</p>
           <div className="action-row">
             {profile.socialLinks.map((link) => (
               <a
                 key={link.label}
-                className={`button-link${link.label === 'Email' ? ' button-link--secondary' : ''}`}
+                className={`button-link${link.label === "Email" ? " button-link--secondary" : ""}`}
                 href={link.href}
-                target={link.external ? '_blank' : undefined}
-                rel={link.external ? 'noreferrer' : undefined}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noreferrer" : undefined}
               >
                 {link.label}
               </a>
@@ -32,23 +37,15 @@ export default function Home() {
           <h2>{profile.fullName}</h2>
           <ul className="detail-list">
             <li>Frontend engineering with modern React and TypeScript</li>
-            <li>Experience translating requirements into polished interfaces</li>
+            <li>
+              Experience translating requirements into polished interfaces
+            </li>
             <li>Focused on accessibility, maintainability, and user trust</li>
           </ul>
         </aside>
       </section>
 
       <section className="content-grid" aria-label="Professional overview">
-        <article className="surface-card section-block">
-          <p className="section-label">Core strengths</p>
-          <h2>What I bring to a team</h2>
-          <ul className="bullet-list">
-            {strengths.map((strength) => (
-              <li key={strength}>{strength}</li>
-            ))}
-          </ul>
-        </article>
-
         <article className="surface-card section-block">
           <p className="section-label">Experience</p>
           <h2>Engineering focus</h2>
@@ -58,17 +55,16 @@ export default function Home() {
             ))}
           </div>
         </article>
-      </section>
-
-      <section className="surface-card section-block section-block--wide">
-        <p className="section-label">About</p>
-        <h2>My path into software</h2>
-        <div className="stack-text">
-          {story.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
+        <section className="surface-card section-block section-block--wide">
+          <p className="section-label">About</p>
+          <h2>My path into software</h2>
+          <div className="stack-text">
+            {story.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
       </section>
     </div>
-  )
+  );
 }
