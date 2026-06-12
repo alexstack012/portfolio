@@ -1,6 +1,8 @@
 import dashboardScreenshot from '../assets/images/dash.webp'
 import loginScreenshot from '../assets/images/login.webp'
 import aginspireScreenshot from '../assets/images/aginspireScreenshot.webp'
+import photographyPortfolioScreenshot1 from '../assets/images/photoport1.webp'
+import photographyPortfolioScreenshot2 from '../assets/images/photoport2.webp'
 
 //this might be overkill for a simple portfolio, but it seemed right to keep content together and separate from presentation logic.
 
@@ -141,6 +143,35 @@ export const featuredProjects = [
       {
         src: aginspireScreenshot,
         alt: 'Aginspire homepage showing educational resources for agriculture',
+      },
+    ],
+  },
+  {
+    name: 'My Photo Portfolio template',
+    status: 'Example code available on GitHub, no live deployment',
+    summary: 'A simple SPA Angular application built for a private client in the photography industry.',
+    description:
+      'A photography portfolio template built with Angular, designed to provide photographers with a clean and customizable platform to showcase their work and attract potential clients. The application features a responsive design, intuitive navigation, and a user-friendly interface that allows photographers to easily upload and organize their photos into galleries. The template also includes sections for an about page, contact information, and integration with social media platforms to help photographers connect with their audience and grow their online presence.',
+    stack: ['Angular', 'TypeScript', 'SCSS', 'Hosting via client-provided'],
+    // outcomes: [
+    //   'Delivered a polished, user-friendly SPA that met the client’s requirements and timeline',
+    //   'Implemented responsive design to ensure accessibility across devices',
+    // ],
+    highlights: [
+      '***NOTE: this project is an example I built for demonstation purposes. the images used are open source and not my own work, but the code and architecture are my own creation.***',
+      'Responsive design for users on all devices and user experience tailored to the client’s audience',
+      'End-to-end project delivery from initial requirements gathering to deployment',
+    ],
+    repositoryHref: 'https://github.com/alexstack012/photography-portfolio',
+    repositoryPrivate: false,
+    screenshots: [
+      {
+        src: photographyPortfolioScreenshot1,
+        alt: 'Photography portfolio template showing a grid of featured images',
+      },
+      {
+        src: photographyPortfolioScreenshot2,
+        alt: 'Photography portfolio template displaying a detailed image view',
       },
     ],
   }

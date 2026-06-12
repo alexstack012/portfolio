@@ -64,14 +64,16 @@ export default function Projects() {
               <p>{project.description}</p>
 
               <div className="project-card__meta">
+                {project.outcomes ? 
                 <section className="project-card__panel">
                   <h3>Key outcomes</h3>
                   <ul className="bullet-list">
-                    {project.outcomes.map((item) => (
+                    {project.outcomes?.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </section>
+                : null}
 
                 <section className="project-card__panel">
                   <h3>Highlights</h3>
@@ -84,7 +86,7 @@ export default function Projects() {
               </div>
 
               <section className="project-card__panel">
-                <h3>Stack</h3>
+                <h3>Tech Stack</h3>
                 <div className="tag-row">
                   {project.stack.map((item) => (
                     <span key={item} className="tag">
