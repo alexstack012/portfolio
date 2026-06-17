@@ -11,8 +11,6 @@ export const profile = {
   fullName: 'Alex Stack',
   location: 'Minnesota, USA',
   role: 'Frontend Engineer',
-  summary:
-    'I build accessible, maintainable interfaces with React, TypeScript, and a product mindset shaped by real-world engineering teams.',
   email: 'alex_stack012@live.com',
   resumePath: '/ASTACKResume.pdf',
   socialLinks: [

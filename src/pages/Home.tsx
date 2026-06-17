@@ -16,7 +16,6 @@ export default function Home() {
             Building thoughtful products with clean code and a strong front-end
             eye.
           </h1>
-          <p className="hero__summary">{profile.summary}</p>
           <div className="action-row">
             {profile.socialLinks.map((link) => (
               <a
