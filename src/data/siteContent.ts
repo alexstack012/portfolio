@@ -26,7 +26,7 @@ export const profile = {
     },
     {
       label: 'Resume',
-      href: '/ASTACKResume.pdf',
+      href: '/AlexStackResume.pdf',
       external: true,
     },
     {
