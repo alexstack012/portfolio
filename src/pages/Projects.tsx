@@ -1,7 +1,9 @@
 import CloseIcon from '@mui/icons-material/Close'
 import { Dialog, DialogContent, IconButton } from '@mui/material'
 import { useState } from 'react'
+import Seo from '../components/Seo'
 import { featuredProjects } from '../data/siteContent'
+import { profile } from '../data/siteContent'
 
 export default function Projects() {
   const [activeScreenshot, setActiveScreenshot] = useState<{
@@ -12,6 +14,16 @@ export default function Projects() {
 
   return (
     <div className="page">
+      <Seo
+        title="Projects | Alex Stack Frontend Developer Portfolio"
+        description="Browse frontend case studies from Alex Stack, a Minnesota developer for hire working in React, TypeScript, Angular, and responsive web application development."
+        path="/projects"
+        keywords={[
+          ...profile.seoKeywords,
+          'frontend developer portfolio Minnesota',
+          'React portfolio projects',
+        ]}
+      />
       <section className="page-header surface-card">
         <p className="section-label">Projects</p>
         <h1>Selected work that shows how I structure products and front-end systems.</h1>

@@ -10,9 +10,21 @@ export const profile = {
   firstName: 'Alex',
   fullName: 'Alex Stack',
   location: 'Minnesota, USA',
-  role: 'Frontend Engineer',
+  role: 'Frontend Developer',
   email: 'alex_stack012@live.com',
   resumePath: '/ASTACKResume.pdf',
+  shortBio:
+    'Minnesota frontend developer for hire building responsive React, TypeScript, and Angular experiences for freelance clients and product teams.',
+  serviceAreas: ['Minnesota', 'United States', 'Remote'],
+  seoKeywords: [
+    'Minnesota frontend developer',
+    'Minnesota freelance web developer',
+    'React developer for hire',
+    'TypeScript developer Minnesota',
+    'Angular freelancer',
+    'local web developer',
+    'frontend engineer for hire',
+  ],
   socialLinks: [
     {
       label: 'GitHub',
@@ -45,9 +57,9 @@ export const strengths = [
 ]
 
 export const experienceHighlights = [
-  'Frontend-focused engineer with several years of experience building responsive and maintainable applications.',
-  'Strong background in Angular, React, TypeScript, JavaScript, and API-driven UI development.',
-  'Comfortable contributing across the stack with Node, Python, SQL, and practical debugging in production environments.',
+  'Minnesota frontend developer with experience building responsive and maintainable applications for real product teams and client work.',
+  'Strong background in Angular, React, TypeScript, JavaScript, and API-driven UI development for marketing sites, dashboards, and custom web apps.',
+  'Available for freelance web development, front-end feature work, and collaborative product delivery with local or remote clients.',
 ]
 
 export const story = [

@@ -1,14 +1,27 @@
 import { contactChannels } from '../data/siteContent'
+import Seo from '../components/Seo'
+import { profile } from '../data/siteContent'
 
 export default function Contact() {
   return (
     <div className="page">
+      <Seo
+        title="Contact Alex Stack | Frontend Developer for Hire in Minnesota"
+        description="Contact Alex Stack for freelance frontend development, React and TypeScript projects, and local or remote web development work in Minnesota."
+        path="/contact"
+        keywords={[
+          ...profile.seoKeywords,
+          'contact frontend developer Minnesota',
+          'hire React developer Minnesota',
+        ]}
+      />
       <section className="page-header surface-card">
         <p className="section-label">Contact</p>
-        <h1>Let&apos;s talk about building thoughtful product experiences.</h1>
+        <h1>Hire a Minnesota frontend developer for freelance or team-based work.</h1>
         <p className="page-intro">
-          I&apos;m interested in frontend engineering roles where clean implementation,
-          collaboration, and UX quality all matter.
+          Reach out if you need help with a React app, Angular front end, UI
+          cleanup, or a custom website. I&apos;m open to freelance projects,
+          contract work, and full-time frontend roles.
         </p>
       </section>
 
