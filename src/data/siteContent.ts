@@ -3,9 +3,9 @@ import loginScreenshot from "../assets/images/login.webp";
 import aginspireScreenshot from "../assets/images/aginspireScreenshot.webp";
 import photographyPortfolioScreenshot1 from "../assets/images/photoport1.webp";
 import photographyPortfolioScreenshot2 from "../assets/images/photoport2.webp";
-import campaignArchiveDashboardScreenshot from "../assets/images/campaignArchiveDashboardScreenshot.png";
-import campaignArchiveCharactersScreenshot from "../assets/images/campaignArchiveCharactersScreenshot.png";
-import campaignArchiveLogScreenshot from "../assets/images/campaignArchiveLogScreenshot.png";
+import campaignArchiveDashboardScreenshot from "../assets/images/campaignArchiveDashboardScreenshot.webp";
+import campaignArchiveCharactersScreenshot from "../assets/images/campaignArchiveCharactersScreenshot.webp";
+import campaignArchiveLogScreenshot from "../assets/images/campaignArchiveLogScreenshot.webp";
 
 //this might be overkill for a simple portfolio, but it seemed right to keep content together and separate from presentation logic.
 
