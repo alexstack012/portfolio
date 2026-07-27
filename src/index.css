@@ -7,15 +7,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --color-bg: #071019;
-  --color-bg-elevated: #0f1724;
-  --color-surface: rgba(13, 19, 32, 0.8);
-  --color-border: rgba(148, 163, 184, 0.16);
-  --color-border-strong: rgba(249, 115, 22, 0.32);
-  --color-text: #cbd5e1;
-  --color-text-strong: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-accent: #fb923c;
+  --color-bg: #09090f;
+  --color-bg-elevated: #11111a;
+  --color-surface: #101018;
+  --color-border: #292936;
+  --color-border-strong: #6d5bd0;
+  --color-text: #c7c6d0;
+  --color-text-strong: #f4f2f8;
+  --color-text-muted: #92909e;
+  --color-accent: #a78bfa;
+  --color-accent-strong: #8b5cf6;
 }
 
 *,
@@ -32,10 +33,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 26%),
-    radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 24%),
-    linear-gradient(180deg, #08111b 0%, #071019 48%, #091421 100%);
+  background: var(--color-bg);
   color: var(--color-text);
 }
 
@@ -60,7 +58,7 @@ button {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid rgba(251, 146, 60, 0.8);
+  outline: 3px solid rgba(167, 139, 250, 0.85);
   outline-offset: 3px;
 }
 
@@ -85,9 +83,9 @@ h3 {
 }
 
 h1 {
-  max-width: 14ch;
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  letter-spacing: -0.05em;
+  max-width: 16ch;
+  font-size: clamp(2.8rem, 7vw, 5.25rem);
+  letter-spacing: -0.045em;
 }
 
 h2 {
