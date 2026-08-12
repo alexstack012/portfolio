@@ -92,52 +92,69 @@ export const contactChannels = [
 export const featuredProjects = [
   {
     name: "Tabletop Campaign Archive",
-    status: "Active personal project, deployment in progress",
+    status: "Live full-stack application",
     summary:
-      "A full-stack campaign-management archive for organizing characters, sessions, lore, locations, spells, and equipment for a lore-heavy dark-fantasy tabletop campaign.",
+      "A production-deployed full-stack campaign management platform for organizing interconnected characters, sessions, locations, lore, plot points, spells, and equipment across a long-running tabletop campaign.",
     description:
-      "The Tabletop Campaign Archive is an Angular and PostgreSQL application built for The War of Shadow and Secrets, a dark-fantasy campaign connecting Curse of Strahd, Vecna: Eve of Ruin, and the Shadowfell. It combines searchable reference data with database-backed campaign records, role-aware access, and protected CRUD workflows. Visitors can explore a read-only demonstration, while authenticated keepers can manage characters and campaign sessions.",
+      "The Tabletop Campaign Archive is a full-stack Angular application built to manage years of interconnected campaign data for The War of Shadow and Secrets. The platform combines normalized PostgreSQL data, an Express REST API, role-based authorization, searchable reference tools, and protected CRUD workflows into a responsive campaign-management interface. Public visitors can explore the archive through a restricted read-only demo, while authenticated keepers can manage campaign records, relationships, visibility, and narrative data. The production application is deployed through Cloudflare Workers, Render, and Neon PostgreSQL.",
+
     stack: [
       "Angular 21",
       "TypeScript",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
       "RxJS",
+      "Node.js",
+      "Express 5",
+      "PostgreSQL",
       "SCSS",
       "Vitest",
+      "Playwright",
+      "Cloudflare Workers",
+      "Render",
+      "Neon",
     ],
+
     outcomes: [
-      "Built a normalized PostgreSQL data layer for campaigns, entities, sessions, locations, aliases, and linked records",
-      "Created authenticated editor and read-only demonstration modes with protected Angular routes and signed bearer sessions",
-      "Implemented character and campaign-session create, edit, detail, and confirmed-delete workflows",
-      "Moved runtime character and campaign-log data from static placeholders into parameterized Express API queries",
-      "Added SQL-level visibility filtering so restricted campaign data is never sent to unauthorized users",
-      "Designed responsive dark-fantasy interfaces for characters, sessions, spells, equipment, lore, and locations",
+      "Designed a normalized PostgreSQL schema for campaigns, characters, sessions, locations, lore, plot points, aliases, and many-to-many relationships",
+      "Built repository-layer Express APIs using parameterized SQL, transactional CRUD operations, and aggregated queries for interconnected campaign records",
+      "Implemented authenticated editor and restricted read-only demo roles with protected Angular routes, API authorization, and HMAC-signed sessions",
+      "Enforced visibility rules at the database query layer so restricted campaign records are never returned to unauthorized users",
+      "Migrated campaign data from frontend placeholders into persistent PostgreSQL-backed workflows while preserving static reference data where relational storage offered little benefit",
+      "Implemented create, edit, delete, search, filtering, relationship management, image-backed records, and explicit loading, error, empty, and populated UI states",
+      "Added production security controls including rate-limited authentication, Helmet, CORS restrictions, environment validation, and restricted database credentials",
+      "Deployed the production architecture across Cloudflare Workers, Render, and Neon with static asset delivery, API proxying, health checks, and a custom portfolio subdomain",
     ],
+
     highlights: [
-      "Full-stack Angular, Express, and PostgreSQL architecture",
-      "Role-aware authorization and read-only demonstration access",
-      "Normalized relational data with aggregated API responses that avoid N+1 queries",
-      "Searchable and filterable character, spell, equipment, and session interfaces",
-      "Reusable typed API services and shared TypeScript models",
-      "Backend, component, service, and production-build validation",
+      "Production-deployed Angular, Express, and PostgreSQL architecture",
+      "Normalized relational modeling with many-to-many campaign relationships",
+      "Role-based authorization with protected editor and read-only demo experiences",
+      "SQL-level visibility enforcement for restricted campaign content",
+      "Aggregated PostgreSQL queries designed to avoid N+1 API request patterns",
+      "Searchable character, session, lore, location, spell, and equipment interfaces",
+      "Reusable typed Angular services, shared models, and API contracts",
+      "Responsive desktop and mobile interfaces with explicit application state handling",
+      "Automated backend, frontend, service, and end-to-end validation with Vitest and Playwright",
+      "Production hosting through Cloudflare Workers, Render, and Neon PostgreSQL",
     ],
+
     repositoryHref: "https://github.com/alexstack012/TTCA",
+
     repositoryPrivate: false,
-    demoHref: "",
+
+    demoHref: "https://archive.alexstackcodes.com",
+
     screenshots: [
       {
         src: campaignArchiveDashboardScreenshot,
-        alt: "Tabletop Campaign Archive dashboard showing its dark-fantasy campaign collections",
+        alt: "Tabletop Campaign Archive dashboard showing campaign collections and navigation",
       },
       {
         src: campaignArchiveCharactersScreenshot,
-        alt: "Campaign character directory with searchable database-backed NPC records",
+        alt: "Searchable campaign character directory displaying database-backed NPC records",
       },
       {
         src: campaignArchiveLogScreenshot,
-        alt: "Campaign session log showing linked locations and notable characters",
+        alt: "Campaign session log displaying linked locations, characters, and narrative records",
       },
     ],
   },
