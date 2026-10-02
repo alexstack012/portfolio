@@ -26,14 +26,8 @@ export default function Projects() {
           'Playwright automated testing',
         ]}
       />
-      <section className="page-header surface-card">
+
         <p className="section-label">Projects</p>
-        <h1>Selected work that shows how I structure products and front-end systems.</h1>
-        <p className="page-intro">
-          Each project here is meant to read like a lightweight case study: what the
-          product is, what problems it solves, and which engineering decisions shaped it.
-        </p>
-      </section>
 
       <section className="project-list" aria-label="Project case studies">
         {featuredProjects.map((project) => (
