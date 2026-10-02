@@ -1,8 +1,6 @@
 import dashboardScreenshot from "../assets/images/dash.webp";
 import loginScreenshot from "../assets/images/login.webp";
 import aginspireScreenshot from "../assets/images/aginspireScreenshot.webp";
-import photographyPortfolioScreenshot1 from "../assets/images/photoport1.webp";
-import photographyPortfolioScreenshot2 from "../assets/images/photoport2.webp";
 import campaignArchiveDashboardScreenshot from "../assets/images/campaignArchiveDashboardScreenshot.webp";
 import campaignArchiveCharactersScreenshot from "../assets/images/campaignArchiveCharactersScreenshot.webp";
 import campaignArchiveLogScreenshot from "../assets/images/campaignArchiveLogScreenshot.webp";
@@ -15,7 +13,7 @@ export const profile = {
   location: "Minnesota, USA",
   role: "Frontend Developer",
   email: "alex_stack012@live.com",
-  resumePath: "/ASTACKResume.pdf",
+  resumePath: "/AlexStackResume.pdf",
   shortBio:
     "Minnesota frontend developer for hire building responsive React, TypeScript, and Angular experiences for freelance clients and product teams.",
   serviceAreas: ["Minnesota", "United States", "Remote"],
@@ -89,15 +87,79 @@ export const contactChannels = [
   },
 ];
 
-export const featuredProjects = [
+type FeaturedProject = {
+  name: string;
+  category: string;
+  status: string;
+  summary: string;
+  description: string;
+  stack: string[];
+  outcomes: string[];
+  highlights: string[];
+  links: Array<{
+    label: string;
+    href?: string;
+    disabled?: boolean;
+  }>;
+  mediaLabel?: string;
+  screenshots: Array<{
+    src: string;
+    alt: string;
+  }>;
+};
+
+export const featuredProjects: FeaturedProject[] = [
+  {
+    name: "StackApply",
+    category: "Shipped browser extension",
+    status: "Free beta live for Chromium and Firefox",
+    summary:
+      "A local-first browser extension that scans job application pages, identifies likely profile fields, and lets applicants review high-confidence matches before autofilling.",
+    description:
+      "I built StackApply as a real cross-browser product, not an automatic application bot: it supports multi-step application workflows, reports fields that were filled, need review, or were blocked, stores applicant data locally, and never submits an application. One TypeScript codebase produces separate Manifest V3 builds for Chromium browsers and Firefox, with automated and manual release QA. A paid-feature architecture using Stripe-hosted checkout and signed entitlements is in development while the public Free Beta remains deliberately locked to free features.",
+    stack: [
+      "TypeScript",
+      "JavaScript",
+      "Browser Extension APIs",
+      "Manifest V3",
+      "WebExtensions",
+      "HTML/CSS",
+      "Vite",
+      "Vitest",
+      "Playwright",
+      "Stripe architecture",
+    ],
+    outcomes: [
+      "Released version 0.9 as a Free Beta through the Chrome Web Store and Firefox Add-ons",
+      "Built confidence-based detection and guarded autofill that favors review over incorrect data entry",
+      "Kept applicant profiles, work history, and education data in local browser storage",
+    ],
+    highlights: [
+      "Separate verified Chromium and Firefox distributions from one TypeScript source tree",
+      "User-controlled scanning, individual or bulk filling, and multi-page application support",
+      "Regression coverage for matching, storage, browser behavior, and release builds",
+    ],
+    links: [
+      {
+        label: "Chrome Web Store",
+        href: "https://chromewebstore.google.com/detail/pmbednfckdcfdkceghlabjccinicomnp",
+      },
+      {
+        label: "Firefox Add-ons",
+        href: "https://addons.mozilla.org/en-US/firefox/addon/stackapply/",
+      },
+    ],
+    mediaLabel: "Browser extension",
+    screenshots: [],
+  },
   {
     name: "Tabletop Campaign Archive",
+    category: "Full-stack product",
     status: "Live full-stack application",
     summary:
-      "A production-deployed full-stack campaign management platform for organizing interconnected characters, sessions, locations, lore, plot points, spells, and equipment across a long-running tabletop campaign.",
+      "A production-deployed campaign platform for organizing interconnected characters, sessions, locations, lore, plot points, spells, and equipment.",
     description:
-      "The Tabletop Campaign Archive is a full-stack Angular application built to manage years of interconnected campaign data for The War of Shadow and Secrets. The platform combines normalized PostgreSQL data, an Express REST API, role-based authorization, searchable reference tools, and protected CRUD workflows into a responsive campaign-management interface. Public visitors can explore the archive through a restricted read-only demo, while authenticated keepers can manage campaign records, relationships, visibility, and narrative data. The production application is deployed through Cloudflare Workers, Render, and Neon PostgreSQL.",
-
+      "I designed and shipped the Angular application, Express REST API, and normalized PostgreSQL model used to manage years of connected campaign data. Public visitors get a restricted read-only demo, while authenticated keepers use protected CRUD workflows; SQL-level visibility rules prevent restricted records from reaching unauthorized users.",
     stack: [
       "Angular 21",
       "TypeScript",
@@ -112,37 +174,20 @@ export const featuredProjects = [
       "Render",
       "Neon",
     ],
-
     outcomes: [
-      "Designed a normalized PostgreSQL schema for campaigns, characters, sessions, locations, lore, plot points, aliases, and many-to-many relationships",
-      "Built repository-layer Express APIs using parameterized SQL, transactional CRUD operations, and aggregated queries for interconnected campaign records",
-      "Implemented authenticated editor and restricted read-only demo roles with protected Angular routes, API authorization, and HMAC-signed sessions",
-      "Enforced visibility rules at the database query layer so restricted campaign records are never returned to unauthorized users",
-      "Migrated campaign data from frontend placeholders into persistent PostgreSQL-backed workflows while preserving static reference data where relational storage offered little benefit",
-      "Implemented create, edit, delete, search, filtering, relationship management, image-backed records, and explicit loading, error, empty, and populated UI states",
-      "Added production security controls including rate-limited authentication, Helmet, CORS restrictions, environment validation, and restricted database credentials",
-      "Deployed the production architecture across Cloudflare Workers, Render, and Neon with static asset delivery, API proxying, health checks, and a custom portfolio subdomain",
+      "Deployed the frontend, API, and database through Cloudflare Workers, Render, and Neon",
+      "Modeled campaigns, sessions, characters, locations, lore, aliases, and many-to-many relationships",
+      "Implemented authenticated editor and restricted demo roles with signed sessions and protected routes",
     ],
-
     highlights: [
-      "Production-deployed Angular, Express, and PostgreSQL architecture",
-      "Normalized relational modeling with many-to-many campaign relationships",
-      "Role-based authorization with protected editor and read-only demo experiences",
-      "SQL-level visibility enforcement for restricted campaign content",
-      "Aggregated PostgreSQL queries designed to avoid N+1 API request patterns",
-      "Searchable character, session, lore, location, spell, and equipment interfaces",
-      "Reusable typed Angular services, shared models, and API contracts",
-      "Responsive desktop and mobile interfaces with explicit application state handling",
-      "Automated backend, frontend, service, and end-to-end validation with Vitest and Playwright",
-      "Production hosting through Cloudflare Workers, Render, and Neon PostgreSQL",
+      "Parameterized and transactional repository-layer queries with aggregated relationship data",
+      "Responsive search, filtering, relationship management, and explicit loading/error states",
+      "Backend, frontend, service, and end-to-end validation with Vitest and Playwright",
     ],
-
-    repositoryHref: "https://github.com/alexstack012/TTCA",
-
-    repositoryPrivate: false,
-
-    demoHref: "https://archive.alexstackcodes.com",
-
+    links: [
+      { label: "Live Demo", href: "https://archive.alexstackcodes.com" },
+      { label: "GitHub Repo", href: "https://github.com/alexstack012/TTCA" },
+    ],
     screenshots: [
       {
         src: campaignArchiveDashboardScreenshot,
@@ -159,12 +204,45 @@ export const featuredProjects = [
     ],
   },
   {
-    name: "Northstar Workforce Solutions Dashboard",
-    status: "Case study live, deployment coming soon",
+    name: "Full Stack Innovations Quick Launch",
+    category: "Commercial template platform",
+    status: "Product platform in active development",
     summary:
-      "A mock staffing and workforce-management dashboard designed to feel like a real internal business application for recruiting and operations teams.",
+      "A productized Angular website system with eight reusable designs and eight matching self-service editors for quickly configuring, validating, purchasing, and delivering customer sites.",
     description:
-      "Northstar simulates the workflows a team would use to manage openings, candidates, permissions, and hiring activity across multiple tenants. The focus was on making the product feel credible: authenticated routing, role-aware UX, reusable data access patterns, and polished CRUD flows instead of static portfolio screens.",
+      "I own the platform end to end: shared configuration patterns keep copy, branding, media, links, and SEO out of component markup; assisted-service and self-service workspaces support home services, appointments, photography, art, creator, streaming, and lightweight commerce use cases. Local connected workflows now cover saved projects, sanitized uploads, frozen revisions, Stripe sandbox checkout, entitlement-bound ZIP delivery, and purchase recovery without claiming that public self-service sales are live.",
+    stack: [
+      "Angular 21",
+      "TypeScript",
+      "RxJS",
+      "Node.js",
+      "Playwright",
+      "Stripe Checkout",
+      "GitHub Actions",
+      "HTML/CSS",
+    ],
+    outcomes: [
+      "Built 16 production site/editor builds around eight reusable customer-facing designs",
+      "Centralized customer content, brand colors, assets, links, and SEO in typed site configuration",
+      "Verified all eight local mock purchase, recovery, and exact-ZIP delivery flows",
+    ],
+    highlights: [
+      "Responsive editors with local drafts, validation, preview, and portable configuration files",
+      "Automated build, accessibility, responsive-layout, browser, and archive inspection across the collection",
+      "Stripe sandbox architecture for hosted checkout, verified webhooks, receipts, refunds, and private downloads",
+    ],
+    links: [],
+    mediaLabel: "Reusable Angular templates",
+    screenshots: [],
+  },
+  {
+    name: "Northstar Workforce Solutions Dashboard",
+    category: "Testing-focused case study",
+    status: "Local case study with automated QA",
+    summary:
+      "A staffing and workforce-management dashboard built to demonstrate production-style Angular architecture and testable internal-tool workflows.",
+    description:
+      "Northstar models how recruiting and operations teams manage openings, candidates, users, permissions, and hiring activity across tenants. I paired authenticated, role-aware CRUD workflows with an isolated seeded Playwright harness so automated tests exercise real user paths without changing local development data.",
     stack: [
       "Angular 21",
       "Angular Material",
@@ -173,21 +251,21 @@ export const featuredProjects = [
       "SCSS",
       "json-server",
       "Vitest",
+      "Playwright",
     ],
     outcomes: [
-      "Built authenticated routing with session expiry, recovery flows, and browser-session persistence",
-      "Created CRUD workflows for jobs and candidates with detail, edit, and delete states",
-      "Implemented admin-only user management with tenant-aware presentation and account activation controls",
-      "Used a mock API layer to keep setup simple while still demonstrating application architecture",
+      "Built authenticated routing, session expiry, password recovery, and role-based authorization",
+      "Created tested CRUD workflows for jobs, candidates, and admin-only user management",
+      "Added eight Playwright end-to-end scenarios backed by isolated, repeatable seed data",
     ],
     highlights: [
-      "Route protection and role-based access control",
-      "Reusable service-based data access",
-      "Dashboard metrics and internal-tool presentation",
-      "Careful handling of mixed string and number identifiers from json-server",
+      "Page objects, API fixtures, runtime data preparation, and feature-based test organization",
+      "Reusable RxJS services and typed Angular data access",
+      "Responsive Angular Material dashboard and internal-tool presentation",
     ],
-    repositoryHref: "https://github.com/alexstack012/northstar-dashboard",
-    demoHref: "",
+    links: [
+      { label: "GitHub Repo", href: "https://github.com/alexstack012/northstar-dashboard" },
+    ],
     screenshots: [
       {
         src: dashboardScreenshot,
@@ -201,60 +279,31 @@ export const featuredProjects = [
   },
   {
     name: "Aginspire",
+    category: "Client project",
     status: "Deployed and live at aginspire.org",
     summary:
-      "A simple SPA Angular application built for a private client in the Agriculture industry.",
+      "A responsive Angular website delivered for an agriculture education nonprofit and deployed on the client's hosting.",
     description:
-      "Aginspire is a single-page application built with Angular, designed to provide users with an intuitive interface for exploring a non-profit ag education enterprise that strives to provide fun and educational opportunities for people of all ages",
-    stack: ["Angular", "TypeScript", "SCSS", "Hosting via client-provided"],
+      "I handled requirements, implementation, original on-site photography, client feedback, and deployment handoff. The single-page experience presents the organization's educational programs clearly across desktop and mobile devices.",
+    stack: ["Angular", "TypeScript", "SCSS", "Responsive Web Development"],
     outcomes: [
-      "Delivered a polished, user-friendly SPA that met the client’s requirements and timeline",
-      "Implemented responsive design to ensure accessibility across devices",
-      "Collaborated closely with the client to iterate on design and functionality based on feedback",
+      "Delivered the client project from requirements gathering through deployment",
+      "Implemented responsive layouts for mobile, tablet, and desktop use",
+      "Iterated directly with the client on content, design, and functionality",
     ],
     highlights: [
-      "End-to-end project delivery from initial requirements gathering to deployment",
-      "Responsive design and user experience tailored to the client’s audience",
-      "Effective client communication and iteration to meet project goals",
-      "Images were taken by myslef during a visit to the client’s farm, adding a personal touch to the project and demonstrating my commitment to understanding the client’s needs and context",
+      "Accessible, audience-focused information architecture",
+      "Original photography captured during an on-site client visit",
+      "Client-managed hosting handoff",
     ],
-    repositoryHref: "",
-    repositoryPrivate: true,
-    demoHref: "https://aginspire.org",
+    links: [
+      { label: "Live Site", href: "https://aginspire.org" },
+      { label: "GitHub Repo (Private)", disabled: true },
+    ],
     screenshots: [
       {
         src: aginspireScreenshot,
         alt: "Aginspire homepage showing educational resources for agriculture",
-      },
-    ],
-  },
-  {
-    name: "My Photo Portfolio template",
-    status: "Example code available on GitHub, no live deployment",
-    summary:
-      "A simple SPA Angular application built for a private client in the photography industry.",
-    description:
-      "A photography portfolio template built with Angular, designed to provide photographers with a clean and customizable platform to showcase their work and attract potential clients. The application features a responsive design, intuitive navigation, and a user-friendly interface that allows photographers to easily upload and organize their photos into galleries. The template also includes sections for an about page, contact information, and integration with social media platforms to help photographers connect with their audience and grow their online presence.",
-    stack: ["Angular", "TypeScript", "SCSS", "Hosting via client-provided"],
-    // outcomes: [
-    //   'Delivered a polished, user-friendly SPA that met the client’s requirements and timeline',
-    //   'Implemented responsive design to ensure accessibility across devices',
-    // ],
-    highlights: [
-      "***NOTE: this project is an example I built for demonstation purposes. the images used are open source and not my own work, but the code and architecture are my own creation.***",
-      "Responsive design for users on all devices and user experience tailored to the client’s audience",
-      "End-to-end project delivery from initial requirements gathering to deployment",
-    ],
-    repositoryHref: "https://github.com/alexstack012/photography-portfolio",
-    repositoryPrivate: false,
-    screenshots: [
-      {
-        src: photographyPortfolioScreenshot1,
-        alt: "Photography portfolio template showing a grid of featured images",
-      },
-      {
-        src: photographyPortfolioScreenshot2,
-        alt: "Photography portfolio template displaying a detailed image view",
       },
     ],
   },

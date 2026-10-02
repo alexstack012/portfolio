@@ -16,12 +16,14 @@ export default function Projects() {
     <div className="page">
       <Seo
         title="Projects | Alex Stack Frontend Developer Portfolio"
-        description="Browse frontend case studies from Alex Stack, a Minnesota developer for hire working in React, TypeScript, Angular, and responsive web application development."
+        description="Explore shipped browser extensions, Angular and TypeScript products, full-stack applications, automated testing, and commercial software platforms built by Alex Stack."
         path="/projects"
         keywords={[
           ...profile.seoKeywords,
-          'frontend developer portfolio Minnesota',
-          'React portfolio projects',
+          'Angular TypeScript portfolio',
+          'browser extension developer',
+          'full-stack product development',
+          'Playwright automated testing',
         ]}
       />
       <section className="page-header surface-card">
@@ -36,37 +38,48 @@ export default function Projects() {
       <section className="project-list" aria-label="Project case studies">
         {featuredProjects.map((project) => (
           <article key={project.name} className="surface-card project-card">
-            <div className="project-card__media" aria-label={`${project.name} screenshots`}>
-              <div className="project-shot-grid">
-                {project.screenshots.map((screenshot) => (
-                  <figure key={screenshot.src} className="project-shot">
-                    <button
-                      type="button"
-                      className="project-shot__button"
-                      onClick={() =>
-                        setActiveScreenshot({
-                          src: screenshot.src,
-                          alt: screenshot.alt,
-                          projectName: project.name,
-                        })
-                      }
-                      aria-label={`Inspect screenshot for ${project.name}`}
-                    >
-                      <img
-                        className="project-shot__image"
-                        src={screenshot.src}
-                        alt={screenshot.alt}
-                      />
-                    </button>
-                  </figure>
-                ))}
-              </div>
+            <div className="project-card__media" aria-label={`${project.name} project media`}>
+              {project.screenshots.length > 0 ? (
+                <div className="project-shot-grid">
+                  {project.screenshots.map((screenshot) => (
+                    <figure key={screenshot.src} className="project-shot">
+                      <button
+                        type="button"
+                        className="project-shot__button"
+                        onClick={() =>
+                          setActiveScreenshot({
+                            src: screenshot.src,
+                            alt: screenshot.alt,
+                            projectName: project.name,
+                          })
+                        }
+                        aria-label={`Inspect screenshot for ${project.name}`}
+                      >
+                        <img
+                          className="project-shot__image"
+                          src={screenshot.src}
+                          alt={screenshot.alt}
+                        />
+                      </button>
+                    </figure>
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className="project-media-placeholder"
+                  role="img"
+                  aria-label={`${project.name} visual placeholder`}
+                >
+                  <span>{project.mediaLabel ?? project.category}</span>
+                  <strong>{project.name}</strong>
+                </div>
+              )}
             </div>
 
             <div className="project-card__content">
               <div className="project-card__header">
                 <div>
-                  <p className="section-label">Featured project</p>
+                  <p className="section-label">{project.category}</p>
                   <h2>{project.name}</h2>
                 </div>
                 <p className="project-card__status">{project.status}</p>
@@ -108,22 +121,31 @@ export default function Projects() {
                 </div>
               </section>
 
-              <div className="action-row">
-                {project.repositoryPrivate ? (
-                  <span className="button-link button-link--disabled" aria-disabled="true">
-                    Github Repo (Private)
-                  </span>
-                ) : (
-                  <a
-                    className="button-link"
-                    href={project.repositoryHref}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Github Repo
-                  </a>
-                )}
-              </div>
+              {project.links.length > 0 ? (
+                <div className="action-row">
+                  {project.links.map((link, index) =>
+                    link.disabled || !link.href ? (
+                      <span
+                        key={link.label}
+                        className="button-link button-link--disabled"
+                        aria-disabled="true"
+                      >
+                        {link.label}
+                      </span>
+                    ) : (
+                      <a
+                        key={link.label}
+                        className={`button-link${index > 0 ? ' button-link--secondary' : ''}`}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ),
+                  )}
+                </div>
+              ) : null}
             </div>
           </article>
         ))}
@@ -134,7 +156,11 @@ export default function Projects() {
         onClose={() => setActiveScreenshot(null)}
         maxWidth="lg"
         fullWidth
-        aria-labelledby="project-screenshot-preview-title"
+        aria-label={
+          activeScreenshot
+            ? `${activeScreenshot.projectName} screenshot preview`
+            : 'Project screenshot preview'
+        }
         PaperProps={{ className: 'project-dialog__paper' }}
         slotProps={{
           backdrop: {
