@@ -1,9 +1,9 @@
 import CloseIcon from '@mui/icons-material/Close'
 import { Dialog, DialogContent, IconButton } from '@mui/material'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import { featuredProjects } from '../data/siteContent'
-import { profile } from '../data/siteContent'
 
 export default function Projects() {
   const [activeScreenshot, setActiveScreenshot] = useState<{
@@ -14,20 +14,20 @@ export default function Projects() {
 
   return (
     <div className="page">
-      <Seo
-        title="Projects | Alex Stack Frontend Developer Portfolio"
-        description="Explore shipped browser extensions, Angular and TypeScript products, full-stack applications, automated testing, and commercial software platforms built by Alex Stack."
-        path="/projects"
-        keywords={[
-          ...profile.seoKeywords,
-          'Angular TypeScript portfolio',
-          'browser extension developer',
-          'full-stack product development',
-          'Playwright automated testing',
-        ]}
-      />
+      <Seo page="projects" />
 
-        <p className="section-label">Projects</p>
+      <section className="page-header surface-card">
+        <p className="section-label">Engineering case studies</p>
+        <h1>Software products built for reliability, usability, and production.</h1>
+        <p className="page-intro">
+          Shipped browser extensions, full-stack applications, enterprise-style interfaces, and
+          commercial platforms with a focus on architecture, testing, deployment, and clear user
+          workflows.
+        </p>
+        <Link className="text-link" to="/experience">
+          See the professional experience behind this work
+        </Link>
+      </section>
 
       <section className="project-list" aria-label="Project case studies">
         {featuredProjects.map((project) => (

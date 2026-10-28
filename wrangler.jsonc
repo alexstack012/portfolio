@@ -7,7 +7,8 @@
   },
   "assets": {
     "not_found_handling": "single-page-application",
-    "directory": "./dist"
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash"
   },
   "compatibility_flags": [
     "nodejs_compat"

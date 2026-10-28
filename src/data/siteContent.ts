@@ -16,20 +16,20 @@ export const profile = {
   firstName: "Alex",
   fullName: "Alex Stack",
   location: "Minnesota, USA",
-  role: "Frontend Developer",
+  role: "Software Engineer",
   email: "alex_stack012@live.com",
   resumePath: "/AlexStackResume.pdf",
   shortBio:
-    "Minnesota frontend developer for hire building responsive React, TypeScript, and Angular experiences for freelance clients and product teams.",
+    "Software Engineer with more than four years of experience building enterprise applications, full-stack products, and production-ready web experiences with Angular and TypeScript.",
   serviceAreas: ["Minnesota", "United States", "Remote"],
   seoKeywords: [
-    "Minnesota frontend developer",
-    "Minnesota freelance web developer",
-    "React developer for hire",
-    "TypeScript developer Minnesota",
-    "Angular freelancer",
-    "local web developer",
-    "frontend engineer for hire",
+    "software engineer Minnesota",
+    "Angular software engineer",
+    "TypeScript software engineer",
+    "frontend engineer Minnesota",
+    "full-stack software engineer",
+    "enterprise Angular developer",
+    "remote software engineer",
   ],
   socialLinks: [
     {
@@ -56,16 +56,16 @@ export const profile = {
 };
 
 export const strengths = [
-  "Designing responsive UI systems that scale beyond a single page",
-  "Shipping clean, typed component architecture in React and TypeScript",
-  "Building accessible experiences with strong UX and interaction detail",
-  "Collaborating across product, backend, and QA to deliver polished features",
+  "Architecting reusable Angular and TypeScript interfaces for complex application workflows",
+  "Integrating REST APIs and tracing data flow across frontend and backend systems",
+  "Improving software quality through unit, integration, end-to-end, and regression testing",
+  "Building and deploying independent full-stack applications and browser products",
 ];
 
 export const experienceHighlights = [
-  "Minnesota experienced software developer with experience building responsive and maintainable applications for real product teams and client work.",
-  "Strong background in Angular, React, TypeScript, JavaScript, and API-driven UI development for marketing sites, dashboards, and custom web apps.",
-  "Available for freelance web development, front-end feature work, SaaS, contract work, and collaborative product delivery with local or remote clients.",
+  "More than four years of software engineering experience across healthcare, global financial services, consulting, and independent product development.",
+  "Specialized in Angular, TypeScript, reusable frontend architecture, RxJS, Angular Material, REST API integration, and accessible responsive interfaces.",
+  "Experienced with Node.js, Express, PostgreSQL, automated testing, CI/CD, browser extensions, and production deployment workflows.",
 ];
 
 export const story = [
@@ -86,9 +86,265 @@ export const contactChannels = [
     href: "https://www.linkedin.com/in/alex-stack/",
   },
   {
+    label: "GitHub",
+    value: "github.com/alexstack012",
+    href: "https://github.com/alexstack012",
+  },
+  {
     label: "Resume",
     value: "Download PDF",
     href: profile.resumePath,
+  },
+];
+
+export type ExperienceLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+export type ProfessionalExperience = {
+  employer: string;
+  title: string;
+  dates: string;
+  location: string;
+  summary: string;
+  technologies: string[];
+  accomplishments: string[];
+  links?: ExperienceLink[];
+};
+
+export const professionalExperience: ProfessionalExperience[] = [
+  {
+    employer: "Full Stack Innovations LLC",
+    title: "Founder & Software Consultant",
+    dates: "August 2026 - Present",
+    location: "Minnesota / Remote",
+    summary:
+      "Independent software development company building commercial products and custom applications.",
+    technologies: [
+      "Angular",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Playwright",
+      "Vitest",
+      "Cloudflare",
+    ],
+    accomplishments: [
+      "Founded and operate a software development company, owning architecture, implementation, testing, deployment, and production support.",
+      "Developed StackApply, a cross-browser application autofill extension supporting five browser targets through two distribution builds.",
+      "Built a configurable website platform with eight customer-facing designs and eight corresponding editor applications.",
+      "Developed full-stack applications with Angular, React, TypeScript, Node.js, Express, PostgreSQL, and REST APIs.",
+      "Implemented automated testing and release workflows with Playwright, Vitest, and supporting development tools.",
+      "Managed production hosting, deployments, authentication, database integration, and cloud infrastructure.",
+    ],
+    links: [
+      {
+        label: "Full Stack Innovations",
+        href: "https://fullstackinnovations.com",
+        external: true,
+      },
+      { label: "Related projects", href: "/projects" },
+    ],
+  },
+  {
+    employer: "Independent",
+    title: "Freelance Web Developer",
+    dates: "August 2025 - August 2026",
+    location: "Minnesota / Remote",
+    summary:
+      "Delivered responsive websites and web applications from initial requirements through production deployment.",
+    technologies: [
+      "Angular",
+      "React",
+      "TypeScript",
+      "Angular Material",
+      "HTML",
+      "SCSS",
+      "DNS",
+      "SSL",
+    ],
+    accomplishments: [
+      "Developed responsive websites and web applications using Angular, React, and TypeScript.",
+      "Worked directly with clients to gather requirements and implement requested features.",
+      "Built and deployed an Angular 15 website for AG Inspire.",
+      "Created reusable components and responsive interfaces with Angular Material.",
+      "Managed hosting, custom domains, deployment workflows, DNS, and SSL configuration.",
+    ],
+  },
+  {
+    employer: "Brooksource / Centene",
+    title: "Mid-Level Software Engineer",
+    dates: "August 2023 - August 2025",
+    location: "Remote",
+    summary:
+      "Developed enterprise healthcare applications across Angular frontends and event-driven backend workflows.",
+    technologies: [
+      "Angular 13-15",
+      "TypeScript",
+      "Angular Material",
+      "RxJS",
+      "REST APIs",
+      "Flowable Enterprise",
+      "XML",
+      "Python",
+      "Unit Testing",
+    ],
+    accomplishments: [
+      "Developed and maintained enterprise Angular applications using Angular 13-15, TypeScript, Angular Material, and RxJS.",
+      "Built reusable components, services, and pipes across application workflows while working within established component libraries and architecture.",
+      "Integrated REST APIs and investigated frontend/backend data-flow issues.",
+      "Maintained and improved a frontend test suite containing more than 6,000 unit tests, reducing execution time by approximately 40% through cleanup and optimization.",
+      "Developed event-driven backend workflows with Flowable Enterprise, workflow tasks, action scripts, API events, XML, Python, and supporting integrations.",
+      "Collaborated with frontend, backend, QA, product, and design teams through Agile development and code review.",
+    ],
+  },
+  {
+    employer: "Doran Jones Inc.",
+    title: "Software Engineer",
+    dates: "May 2022 - August 2023",
+    location: "Remote / Tampa, Florida",
+    summary:
+      "Contributed to enterprise frontend and backend development for a global financial-services application.",
+    technologies: [
+      "Angular 7 & 13",
+      "TypeScript",
+      "Angular Material",
+      "Nx",
+      "REST APIs",
+      "Java",
+      "Spring",
+      "SQL",
+    ],
+    accomplishments: [
+      "Developed enterprise applications using Angular 7 and Angular 13, TypeScript, Angular Material, and REST APIs within an Nx monorepo.",
+      "Created reusable UI components, validation workflows, and role-based functionality.",
+      "Supported an international HR application for a Fortune 50, worldwide Tier 1 financial institution.",
+      "Contributed to backend integration using Java, Spring, SQL, and REST APIs.",
+      "Participated in code reviews, debugging, and cross-functional collaboration.",
+      "Assisted with mentoring and training junior developers on Angular, TypeScript, and frontend engineering principles.",
+    ],
+  },
+  {
+    employer: "Outspoke",
+    title: "Full Stack MERN Developer Intern",
+    dates: "February 2022 - May 2022",
+    location: "Remote",
+    summary:
+      "Supported full-stack product development across React interfaces and Node.js services.",
+    technologies: [
+      "React",
+      "JavaScript",
+      "Material UI",
+      "HTML",
+      "CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "REST APIs",
+    ],
+    accomplishments: [
+      "Built React user interfaces and reusable components with JavaScript, Material UI, HTML, and CSS.",
+      "Supported backend development using Node.js, Express, and MongoDB.",
+      "Worked with REST API integrations and assisted with cross-browser and responsive QA testing.",
+      "Collaborated with developers and designers throughout implementation.",
+    ],
+  },
+];
+
+export const technicalExpertise = [
+  {
+    category: "Frontend",
+    skills: [
+      "Angular",
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "RxJS",
+      "Angular Material",
+      "Material UI",
+      "HTML",
+      "CSS / SCSS",
+      "Responsive UI",
+      "Accessibility",
+      "SPA Architecture",
+    ],
+  },
+  {
+    category: "Backend & Database",
+    skills: [
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Java / Spring Boot",
+      "Python",
+      "SQL",
+      "Database Design",
+    ],
+  },
+  {
+    category: "Testing & QA",
+    skills: [
+      "Playwright",
+      "Jest",
+      "Vitest",
+      "Unit Testing",
+      "Integration Testing",
+      "End-to-End Testing",
+      "Regression Testing",
+      "Cross-Browser QA",
+      "API Testing",
+      "Postman",
+    ],
+  },
+  {
+    category: "Tools, Platforms & Practices",
+    skills: [
+      "Git / GitHub / GitLab",
+      "Cloudflare",
+      "CI/CD",
+      "Nx",
+      "Vite",
+      "Agile / Scrum",
+      "Authentication & Authorization",
+      "Browser Extension APIs",
+      "Production Deployment",
+    ],
+  },
+];
+
+export const militaryExperience = {
+  organization: "U.S. Army Reserve",
+  role: "68J Medical Logistics Specialist",
+  dates: "2009-2017",
+  highlights: [
+    "Managed medical logistics and supply-chain operations supporting the readiness of a Combat Support Hospital.",
+    "Served in leadership and training roles, supervising groups of approximately 4-10 soldiers.",
+    "Participated in predeployment training responsibilities and was selected for ceremonial Color Guard duties.",
+  ],
+};
+
+export const education = [
+  {
+    institution: "Coding Dojo",
+    credential: "Software Development Certificate",
+    date: "2021",
+    details: [
+      "Completed intensive full-stack training in MERN, Java / Spring Boot, Python / Flask, and MySQL.",
+      "Completed timed full-stack application assessments involving implementation and AWS EC2 deployment.",
+    ],
+  },
+  {
+    institution: "Lakeville South High School",
+    credential: "High School Diploma",
+    date: "",
+    details: [],
   },
 ];
 

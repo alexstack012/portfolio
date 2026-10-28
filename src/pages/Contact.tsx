@@ -1,44 +1,58 @@
-import { contactChannels } from '../data/siteContent'
 import Seo from '../components/Seo'
-import { profile } from '../data/siteContent'
+import { contactChannels } from '../data/siteContent'
 
 export default function Contact() {
   return (
     <div className="page">
-      <Seo
-        title="Contact Alex Stack | Frontend Developer for Hire in Minnesota"
-        description="Contact Alex Stack for freelance frontend development, React and TypeScript projects, and local or remote web development work in Minnesota."
-        path="/contact"
-        keywords={[
-          ...profile.seoKeywords,
-          'contact frontend developer Minnesota',
-          'hire React developer Minnesota',
-        ]}
-      />
+      <Seo page="contact" />
+
       <section className="page-header surface-card">
-        <p className="section-label">Contact</p>
-        <h1>Hire a Minnesota frontend developer for freelance or team-based work.</h1>
+        <p className="section-label">Employment opportunities</p>
+        <h1>Interested in Working Together?</h1>
         <p className="page-intro">
-          Reach out if you need help with a React app, Angular front end, UI
-          cleanup, or a custom website. I&apos;m open to freelance projects,
-          contract work, and full-time frontend roles.
+          I&apos;m open to full-time software engineering opportunities, including frontend-focused,
+          full-stack, and related engineering roles. I&apos;m especially interested in remote teams and
+          relevant Minnesota opportunities where strong Angular, TypeScript, architecture, and
+          testing experience can make an impact.
         </p>
       </section>
 
-      <section className="contact-grid" aria-label="Contact channels">
-        {contactChannels.map((channel) => (
-          <a
-            key={channel.label}
-            className="surface-card contact-card"
-            href={channel.href}
-            target={channel.href.startsWith('http') || channel.href.endsWith('.pdf') ? '_blank' : undefined}
-            rel={channel.href.startsWith('http') || channel.href.endsWith('.pdf') ? 'noreferrer' : undefined}
-          >
-            <p className="section-label">{channel.label}</p>
-            <h2>{channel.value}</h2>
-            <span className="contact-card__cta">Open</span>
-          </a>
-        ))}
+      <section className="contact-grid" aria-label="Professional contact channels">
+        {contactChannels.map((channel) => {
+          const opensNewTab = channel.href.startsWith('http') || channel.href.endsWith('.pdf')
+          return (
+            <a
+              key={channel.label}
+              className="surface-card contact-card"
+              href={channel.href}
+              target={opensNewTab ? '_blank' : undefined}
+              rel={opensNewTab ? 'noreferrer' : undefined}
+            >
+              <p className="section-label">{channel.label}</p>
+              <h2>{channel.value}</h2>
+              <span className="contact-card__cta">Open</span>
+            </a>
+          )
+        })}
+      </section>
+
+      <section className="surface-card commercial-referral" aria-labelledby="commercial-title">
+        <div>
+          <p className="section-label">Commercial development services</p>
+          <h2 id="commercial-title">Need Custom Software or Development Services?</h2>
+          <p>
+            Commercial software development, website projects, and business inquiries are handled
+            through Full Stack Innovations LLC.
+          </p>
+        </div>
+        <a
+          className="button-link button-link--secondary"
+          href="https://fullstackinnovations.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Visit Full Stack Innovations
+        </a>
       </section>
     </div>
   )

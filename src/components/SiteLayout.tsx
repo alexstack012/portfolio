@@ -1,12 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, PropsWithChildren } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 
 export default function SiteLayout({ children }: PropsWithChildren) {
+  const { pathname } = useLocation()
   const [touchGlowEnabled, setTouchGlowEnabled] = useState(false)
   const [touchGlows, setTouchGlows] = useState<Array<{ id: number; x: number; y: number }>>([])
   const nextGlowId = useRef(0)
   const glowTimers = useRef(new Set<number>())
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 })
+  }, [pathname])
 
   useEffect(() => {
     const mobileQuery = window.matchMedia('(max-width: 720px)')
@@ -60,7 +66,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
       />
       <main className="site-main">{children}</main>
       <footer className="site-footer">
-        <p>Built with React, TypeScript, and a focus on accessible front-end craft.</p>
+        <p>Built with React and TypeScript, with accessible design and static route rendering.</p>
       </footer>
       <div className="touch-glow-layer" aria-hidden="true">
         {touchGlows.map((glow) => (

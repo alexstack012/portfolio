@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 const navigationItems = [
   { label: 'Home', to: '/' },
+  { label: 'Experience', to: '/experience' },
   { label: 'Projects', to: '/projects' },
   { label: 'Contact', to: '/contact' },
 ]

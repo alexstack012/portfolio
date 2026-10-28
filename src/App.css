@@ -368,7 +368,7 @@
 }
 
 .contact-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .project-list {
@@ -645,13 +645,206 @@
   max-width: 18ch;
 }
 
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.25rem;
+}
+
+.inline-links a,
+.text-link {
+  color: var(--color-accent);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(167, 139, 250, 0.45);
+  text-underline-offset: 0.25rem;
+}
+
+.inline-links a:hover,
+.text-link:hover {
+  color: var(--color-text-strong);
+  text-decoration-color: var(--color-accent);
+}
+
+.hero__social {
+  margin-top: 0.25rem;
+}
+
+.home-story,
+.independent-development,
+.commercial-referral,
+.related-projects {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.home-story {
+  background: transparent;
+  box-shadow: none;
+}
+
+.independent-development,
+.commercial-referral,
+.related-projects {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.independent-development > div,
+.commercial-referral > div,
+.related-projects > div {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 48rem;
+}
+
+.page--experience {
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.experience-section {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.35fr) minmax(0, 1.65fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.section-heading {
+  position: sticky;
+  top: 6rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.experience-timeline {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  padding-left: 1.75rem;
+}
+
+.experience-timeline::before {
+  position: absolute;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 0;
+  width: 1px;
+  background: var(--color-border-strong);
+  content: "";
+}
+
+.experience-card {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.35rem, 3vw, 2rem);
+}
+
+.experience-card::before {
+  position: absolute;
+  top: 1.75rem;
+  left: -2.12rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid var(--color-bg);
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-border-strong);
+  content: "";
+}
+
+.experience-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.experience-card__header > div:first-child {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.experience-card__employer {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.experience-card__meta {
+  display: grid;
+  gap: 0.35rem;
+  min-width: max-content;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.experience-card__summary {
+  color: var(--color-text-strong);
+  font-size: 1.05rem;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.expertise-card,
+.support-card {
+  display: grid;
+  align-content: start;
+  gap: 1.15rem;
+  padding: clamp(1.35rem, 3vw, 2rem);
+}
+
+.experience-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.support-card__meta {
+  color: var(--color-text-muted);
+}
+
+.education-list {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.education-list article {
+  display: grid;
+  gap: 0.75rem;
+}
+
 @media (max-width: 900px) {
   .hero,
   .content-grid,
   .contact-grid,
   .project-card,
-  .project-card__meta {
+  .project-card__meta,
+  .experience-section,
+  .experience-support-grid,
+  .home-story,
+  .independent-development,
+  .commercial-referral,
+  .related-projects {
     grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    position: static;
+  }
+
+  .experience-card__header {
+    flex-direction: column;
+  }
+
+  .experience-card__meta {
+    min-width: 0;
+    text-align: left;
   }
 
   .hero__content {
@@ -733,6 +926,18 @@
 
   .project-card__status {
     white-space: normal;
+  }
+
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-timeline {
+    padding-left: 1.25rem;
+  }
+
+  .experience-card::before {
+    left: -1.62rem;
   }
 }
 
