@@ -77,7 +77,7 @@ export default function Home() {
       <section className="content-grid" aria-label="Professional overview">
         <article className="surface-card section-block">
           <p className="section-label">Experience</p>
-          <h2>Freelance and product engineering focus</h2>
+          <h2>Freelance, Software Engineering</h2>
           <div className="stack-text">
             {experienceHighlights.map((item) => (
               <p key={item}>{item}</p>
