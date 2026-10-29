@@ -79,7 +79,6 @@ export function buildStructuredData(page: SeoPage) {
     sameAs: [
       'https://github.com/alexstack012',
       'https://www.linkedin.com/in/alex-stack/',
-      'https://fullstackinnovations.com',
     ],
     affiliation: {
       '@type': 'Organization',
