@@ -404,12 +404,12 @@ export const featuredProjects: FeaturedProject[] = [
         href: "https://fullstackinnovations.com/products#crumbwarden",
       },
       {
-        label: "Chrome: Publication Review in Progress",
-        disabled: true,
+        label: "Chrome Web Store",
+        href: "https://lnkd.in/gKX85Pxm",
       },
       {
-        label: "Firefox: Publication Review in Progress",
-        disabled: true,
+        label: "Firefox Add-ons",
+        href: "https://lnkd.in/g46DGkHg",
       },
     ],
     screenshots: [
